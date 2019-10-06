@@ -23,6 +23,46 @@
                     <p class="is-size-4">
                         ¥11,900
                     </p>
+                    <!-- Load Stripe.js on your website. -->
+                    <script src="https://js.stripe.com/v3"></script>
+
+                    <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+                    <button class="button is-white" id="checkout-button-sku_FwU7fTXWyjSVUZ" role="link">
+                        購入する
+                    </button>
+
+                    <div id="error-message"></div>
+
+                    <script>
+                        (function () {
+                            var stripe = Stripe('pk_test_6dgYUoFefhkUiXQos4EmPEaL');
+
+                            var checkoutButton = document.getElementById('checkout-button-sku_FwU7fTXWyjSVUZ');
+                            checkoutButton.addEventListener('click', function () {
+                                // When the customer clicks on the button, redirect
+                                // them to Checkout.
+                                stripe.redirectToCheckout({
+                                    items: [{ sku: 'sku_FwU7fTXWyjSVUZ', quantity: 1 }],
+
+                                    // Do not rely on the redirect to the successUrl for fulfilling
+                                    // purchases, customers may not always reach the success_url after
+                                    // a successful payment.
+                                    // Instead use one of the strategies described in
+                                    // https://stripe.com/docs/payments/checkout/fulfillment
+                                    successUrl: 'https://your-website.com/success',
+                                    cancelUrl: 'https://your-website.com/canceled',
+                                })
+                                    .then(function (result) {
+                                        if (result.error) {
+                                            // If `redirectToCheckout` fails due to a browser or network
+                                            // error, display the localized error message to your customer.
+                                            var displayError = document.getElementById('error-message');
+                                            displayError.textContent = result.error.message;
+                                        }
+                                    });
+                            });
+                        })();
+                    </script>
                     <button class="button is-white">カートに入れる</button>
                 </div>
                 <div class="column is-one-third">
@@ -35,7 +75,46 @@
                     <p class="is-size-4">
                         ¥9,800
                     </p>
-                    <button class="button is-white">カートに入れる</button>
+                    <!-- Load Stripe.js on your website. -->
+                    <script src="https://js.stripe.com/v3"></script>
+
+                    <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+                    <button class="button is-white" id="checkout-button-sku_FwUAnPqKNcnTLJ" role="link">
+                        購入する
+                    </button>
+
+                    <div id="error-message"></div>
+
+                    <script>
+                        (function () {
+                            var stripe = Stripe('pk_test_6dgYUoFefhkUiXQos4EmPEaL');
+
+                            var checkoutButton = document.getElementById('checkout-button-sku_FwUAnPqKNcnTLJ');
+                            checkoutButton.addEventListener('click', function () {
+                                // When the customer clicks on the button, redirect
+                                // them to Checkout.
+                                stripe.redirectToCheckout({
+                                    items: [{ sku: 'sku_FwUAnPqKNcnTLJ', quantity: 1 }],
+
+                                    // Do not rely on the redirect to the successUrl for fulfilling
+                                    // purchases, customers may not always reach the success_url after
+                                    // a successful payment.
+                                    // Instead use one of the strategies described in
+                                    // https://stripe.com/docs/payments/checkout/fulfillment
+                                    successUrl: 'https://your-website.com/success',
+                                    cancelUrl: 'https://your-website.com/canceled',
+                                })
+                                    .then(function (result) {
+                                        if (result.error) {
+                                            // If `redirectToCheckout` fails due to a browser or network
+                                            // error, display the localized error message to your customer.
+                                            var displayError = document.getElementById('error-message');
+                                            displayError.textContent = result.error.message;
+                                        }
+                                    });
+                            });
+                        })();
+                    </script>
                 </div>
                 <div class="column is-one-third">
                     <figure class="image is-1by1">
@@ -47,7 +126,46 @@
                     <p class="is-size-4">
                         ¥10,300
                     </p>
-                    <button class="button is-white">カートに入れる</button>
+                    <!-- Load Stripe.js on your website. -->
+                    <script src="https://js.stripe.com/v3"></script>
+
+                    <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+                    <button class="button is-white" id="checkout-button-sku_FwU7fTXWyjSVUZ" role="link">
+                        購入する
+                    </button>
+
+                    <div id="error-message"></div>
+
+                    <script>
+                        (function () {
+                            var stripe = Stripe('pk_test_6dgYUoFefhkUiXQos4EmPEaL');
+
+                            var checkoutButton = document.getElementById('checkout-button-sku_FwU7fTXWyjSVUZ');
+                            checkoutButton.addEventListener('click', function () {
+                                // When the customer clicks on the button, redirect
+                                // them to Checkout.
+                                stripe.redirectToCheckout({
+                                    items: [{ sku: 'sku_FwU7fTXWyjSVUZ', quantity: 1 }],
+
+                                    // Do not rely on the redirect to the successUrl for fulfilling
+                                    // purchases, customers may not always reach the success_url after
+                                    // a successful payment.
+                                    // Instead use one of the strategies described in
+                                    // https://stripe.com/docs/payments/checkout/fulfillment
+                                    successUrl: 'https://your-website.com/success',
+                                    cancelUrl: 'https://your-website.com/canceled',
+                                })
+                                    .then(function (result) {
+                                        if (result.error) {
+                                            // If `redirectToCheckout` fails due to a browser or network
+                                            // error, display the localized error message to your customer.
+                                            var displayError = document.getElementById('error-message');
+                                            displayError.textContent = result.error.message;
+                                        }
+                                    });
+                            });
+                        })();
+                    </script>
                 </div>
                 <div class="column is-one-third">
                     <figure class="image is-1by1">
