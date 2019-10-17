@@ -1,0 +1,5 @@
+.sticky-footer {
+    background-color: #fff;
+    position: sticky;
+    bottom: 0;
+  }
