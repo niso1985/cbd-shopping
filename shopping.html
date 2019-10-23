@@ -7,7 +7,8 @@
     <title>ショッピングページ</title>
     <script src="https://js.stripe.com/v3"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="dist/css/modal-fx.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 
@@ -104,24 +105,6 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <form action="/charge" method="post" id="payment-form">
-                <div class="form-row">
-                    <label for="card-element">
-                        クレジット・デビットカード番号
-                    </label>
-                    <div id="card-element">
-                        <!-- Stripe Element がここに入ります。 -->
-                    </div>
-
-                    <!-- Element のエラーを入れます。 -->
-                    <div id="card-errors" role="alert"></div>
-                </div>
-
-                <button>お支払い</button>
-            </form>
-            <div id="error-message"></div>
-        </div>
         <nav class="navbar is-fixed-bottom">
             <div class="container">
                 <div class="columns is-mobile">
@@ -147,10 +130,77 @@
 
                     </div>
                 </div>
+                <span class="button modal-button" data-target="modal-fadeInScale-fs">配送先入力へ</span>
             </div>
         </nav>
+
+        <div id="modal-fadeInScale-fs" class="modal modal-full-screen modal-fx-fadeInScale">
+            <div class="modal-content modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">配送先情報入力</p>
+                    <button class="modal-button-close delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <div class="container">
+                        <div class="field">
+                            <label class="label">氏名</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="山本太郎">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">郵便番号</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="100-0001">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">住所</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="東京都渋谷区代々木５−５５−５CBDビル４F">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">電話番号</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="090-1111-2222">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">メールアドレス</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="yours@mail.com">
+                            </div>
+                        </div>
+                        <form action="/charge" method="post" id="payment-form">
+                            <div class="form-row">
+                                <label for="card-element">
+                                    クレジット・デビットカード番号
+                                </label>
+                                <div id="card-element">
+                                    <!-- Stripe Element がここに入ります。 -->
+                                </div>
+            
+                                <!-- Element のエラーを入れます。 -->
+                                <div id="card-errors" role="alert"></div>
+                            </div>
+            
+                            <button>お支払い</button>
+                        </form>
+                        <div id="error-message"></div>
+            
+                    </div>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="modal-button-close button is-success">Save changes</button>
+                    <button class="modal-button-close button">Cancel</button>
+                </footer>
+            </div>
+        </div>
+
     </section>
 
+    <script type="text/javascript" src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
     <script src="./js/stripe.js"></script>
 </body>
 

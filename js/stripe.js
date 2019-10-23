@@ -5,11 +5,19 @@
     // Element作成時に options から スタイルを調整できます.
     var style = {
         base: {
-            // ここでStyleの調整をします。
-            fontSize: '16px',
-            color: "#32325d",
+          color: '#32325d',
+          fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+          fontSmoothing: 'antialiased',
+          fontSize: '16px',
+          '::placeholder': {
+            color: '#aab7c4'
+          }
+        },
+        invalid: {
+          color: '#fa755a',
+          iconColor: '#fa755a'
         }
-    };
+      };
 
     // card Element のインスタンスを作成
     var card = elements.create('card', { style: style });
@@ -25,19 +33,6 @@
             displayError.textContent = '';
         }
     });
-
-    function stripeTokenHandler(token) {
-        // tokenをフォームへ包含し送信
-        var form = document.getElementById('payment-form');
-        var hiddenInput = document.createElement('input');
-        hiddenInput.setAttribute('type', 'hidden');
-        hiddenInput.setAttribute('name', 'stripeToken');
-        hiddenInput.setAttribute('value', token.id);
-        form.appendChild(hiddenInput);
-
-        // Submit します
-        form.submit();
-    }
 
     //トークン作成もしくはエラー表示
     var form = document.getElementById('payment-form');
@@ -56,6 +51,18 @@
         });
     });
 
+    function stripeTokenHandler(token) {
+        // tokenをフォームへ包含し送信
+        var form = document.getElementById('payment-form');
+        var hiddenInput = document.createElement('input');
+        hiddenInput.setAttribute('type', 'hidden');
+        hiddenInput.setAttribute('name', 'stripeToken');
+        hiddenInput.setAttribute('value', token.id);
+        form.appendChild(hiddenInput);
+
+        // Submit します
+        form.submit();
+    }    
 })();
 
 
