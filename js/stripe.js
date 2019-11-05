@@ -1,3 +1,35 @@
+var toCheckout = function () {
+    var name = document.getElementById("name").value;
+    var postalcode = document.getElementById("postalcode").value;
+    var address = document.getElementById("address").value;
+    var phone = document.getElementById("phone").value;
+
+    var request = new XMLHttpRequest();
+    request.open('POST', "/session");
+    request.onreadystatechange = function () {
+        if (request.readyState != 4) {
+            // リクエスト中
+        } else if (request.status != 200) {
+            //result.textContent = "リクエスト失敗";
+            alert("error");
+        } else {
+            var stripe = Stripe('pk_test_6dgYUoFefhkUiXQos4EmPEaL');
+            stripe.redirectToCheckout({
+                // Make the id field from the Checkout Session creation API response
+                // available to this file, so you can provide it as parameter here
+                // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+                sessionId: request.responseText
+              }).then(function (result) {
+                // If `redirectToCheckout` fails due to a browser or network
+                // error, display the localized error message to your customer
+                // using `result.error.message`.
+              });            
+
+        }
+    };
+    request.send(null);
+}
+/*
 (function () {
     var stripe = Stripe('pk_test_6dgYUoFefhkUiXQos4EmPEaL');
     var elements = stripe.elements();
@@ -57,5 +89,6 @@
     });
 
 })();
+*/
 
 
