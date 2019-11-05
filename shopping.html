@@ -26,7 +26,7 @@
                     <div class="columns is-vcentered is-mobile">
                         <div class="column">
                             <p class="is-size-4">
-                                ¥11,900(税込))
+                                ¥11,900(税込)
                             </p>
                         </div>
                         <div class="column control">
@@ -139,7 +139,7 @@
                     <button class="modal-button-close delete" aria-label="close"></button>
                 </header>
                 <section class="modal-card-body">
-                    <div class="container">
+                    <div id="shipping" class="container">
                         <div class="field">
                             <label class="label">氏名</label>
                             <div class="control">
@@ -170,12 +170,20 @@
                                 <input class="input" type="text" placeholder="yours@mail.com">
                             </div>
                         </div>
-                        <p>注文後、上記記載のメールアドレスへメールが届きますので、そこから決済を行ってください。</p>
+                        <p>注文後、上記記載のメールアドレスへメールが届きますので、そちらから決済を行ってください。</p>
+                    </div>
+                    <div id="success" class="container is-hidden">
+                        <p>注文を受け付けました。注文情報を記載した請求書をメールで送信しました。<br/>
+                            そちらのメールから決済を行ってください。
+                        </p>
+                    </div>
+                    <div id="failed" class="container is-hidden">
+                        <p>エラーが発生しました。ページを閉じて、再度注文してください。</p>
                     </div>
                 </section>
                 <footer class="modal-card-foot">
-                    <button class="modal-button-close button is-success">注文</button>
-                    <button class="modal-button-close button">キャンセル</button>
+                    <button id="order" class="button is-success" onclick="createOrder();">注文</button>
+                    <button id="cancel" class="modal-button-close button">キャンセル</button>
                 </footer>
             </div>
         </div>
