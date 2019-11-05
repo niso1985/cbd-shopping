@@ -7,7 +7,7 @@ var createOrder = function() {
     var success = document.getElementById("success")
     var failed = document.getElementById("failed")
 
-    var url = "/api"
+    var url = "/api/"
     var data = {
         name: "aaa",
         email: "bbb",
