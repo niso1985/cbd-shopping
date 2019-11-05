@@ -26,21 +26,16 @@
                     <div class="columns is-vcentered is-mobile">
                         <div class="column">
                             <p class="is-size-4">
-                                ¥11,900
+                                ¥11,900(税込))
                             </p>
                         </div>
                         <div class="column control">
                             <form oninput="calc();">
-                                <input type="number" name="oil" placeholder="0" class="input is-small"
+                                <input type="number" name="oil" min="0" placeholder="0" class="input is-small"
                                     style="width:3em;">個
                             </form>
                         </div>
                     </div>
-
-                    <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
-                    <!--<button class="button is-white" id="checkout-button-sku_FwU7fTXWyjSVUZ" role="link">
-                        購入する
-                    </button>-->
                 </div>
                 <div class="column is-one-third">
                     <figure class="image is-1by1">
@@ -52,12 +47,12 @@
                     <div class="columns is-vcentered is-mobile">
                         <div class="column">
                             <p class="is-size-4">
-                                ¥9,800
+                                ¥9,800(税込)
                             </p>
                         </div>
                         <div class="column control">
                             <form oninput="calc();">
-                                <input type="number" name="cream" placeholder="0" class="input is-small"
+                                <input type="number" name="cream" min="0" placeholder="0" class="input is-small"
                                     style="width:3em;">個
                             </form>
                         </div>
@@ -73,12 +68,12 @@
                     <div class="columns is-vcentered is-mobile">
                         <div class="column">
                             <p class="is-size-4">
-                                ¥10,300
+                                ¥10,300(税込)
                             </p>
                         </div>
                         <div class="column control">
                             <form oninput="calc();">
-                                <input type="number" name="roll" placeholder="0" class="input is-small"
+                                <input type="number" name="roll" min="0" placeholder="0" class="input is-small"
                                     style="width:3em;">個
                             </form>
                         </div>
@@ -89,17 +84,18 @@
                         <img src="./img/cbd_family_pack.jpg" />
                     </figure>
                     <p class="is-size-4 has-text-weight-bold">
-                        エンハンスト CBD<br /> ファミリーパック
+                        エンハンスト CBD<br /> ３点セット
                     </p>
                     <div class="columns is-vcentered is-mobile">
                         <div class="column">
                             <p class="is-size-4">
-                                ¥10,300
+                                ¥26,500(税込)
                             </p>
                         </div>
                         <div class="column">
-                            <input type="text" placeholder="0" class="input is-small" style="width:3em;"
-                                form="sumPrice">個
+                            <form oninput="calc();">
+                                <input type="number" name="pack" min="0" placeholder="0" class="input is-small" style="width:3em;">個
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -118,13 +114,15 @@
                                 var oil = document.getElementsByName("oil")[0].value
                                 var cream = document.getElementsByName("cream")[0].value
                                 var roll = document.getElementsByName("roll")[0].value
+                                var pack = document.getElementsByName("pack")[0].value
                                 var result = document.getElementById("result");
                                 var oil_n, cream_n, roll_n;
                                 if (!oil) { oil_n = 0; } else { oil_n = parseInt(oil); }
                                 if (!cream) { cream_n = 0; } else { cream_n = parseInt(cream); }
                                 if (!roll) { roll_n = 0; } else { roll_n = parseInt(roll); }
+                                if (!pack) { pack_n = 0;} else { pack_n = parseInt(pack); }
 
-                                result.innerText = "¥" + (oil_n * 11900 + cream_n * 9800 + roll_n * 10300);
+                                result.innerText = "¥" + (oil_n * 11900 + cream_n * 9800 + roll_n * 10300 + pack_n * 26500);
                             }
                         </script>
 
@@ -172,28 +170,12 @@
                                 <input class="input" type="text" placeholder="yours@mail.com">
                             </div>
                         </div>
-                        <form action="/charge" method="post" id="payment-form">
-                            <div class="form-row">
-                                <label for="card-element">
-                                    クレジット・デビットカード番号
-                                </label>
-                                <div id="card-element">
-                                    <!-- Stripe Element がここに入ります。 -->
-                                </div>
-            
-                                <!-- Element のエラーを入れます。 -->
-                                <div id="card-errors" role="alert"></div>
-                            </div>
-            
-                            <button>お支払い</button>
-                        </form>
-                        <div id="error-message"></div>
-            
+                        <p>注文後、上記記載のメールアドレスへメールが届きますので、そこから決済を行ってください。</p>
                     </div>
                 </section>
                 <footer class="modal-card-foot">
-                    <button class="modal-button-close button is-success">Save changes</button>
-                    <button class="modal-button-close button">Cancel</button>
+                    <button class="modal-button-close button is-success">注文</button>
+                    <button class="modal-button-close button">キャンセル</button>
                 </footer>
             </div>
         </div>
