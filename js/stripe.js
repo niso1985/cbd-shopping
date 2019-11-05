@@ -7,7 +7,7 @@ var createOrder = function() {
     var success = document.getElementById("success")
     var failed = document.getElementById("failed")
 
-    var url = "https://script.google.com/macros/s/AKfycbwH_Nb-mvmOJ_kLympVuHVFzgAafLOI69G-Vy6UwGlOf5JZqSE4/exec"
+    var url = "/api"
     var data = {
         name: "aaa",
         email: "bbb",
