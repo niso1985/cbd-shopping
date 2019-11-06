@@ -31,7 +31,7 @@
                     </p>
                     <div class="columns is-vcentered is-mobile">
                         <div class="column">
-                            <p class="is-size-4">
+                            <p class="is-size-5">
                                 ¥11,900(税込)
                             </p>
                         </div>
@@ -52,7 +52,7 @@
                     </p>
                     <div class="columns is-vcentered is-mobile">
                         <div class="column">
-                            <p class="is-size-4">
+                            <p class="is-size-5">
                                 ¥9,800(税込)
                             </p>
                         </div>
@@ -73,7 +73,7 @@
                     </p>
                     <div class="columns is-vcentered is-mobile">
                         <div class="column">
-                            <p class="is-size-4">
+                            <p class="is-size-5">
                                 ¥10,300(税込)
                             </p>
                         </div>
@@ -94,7 +94,7 @@
                     </p>
                     <div class="columns is-vcentered is-mobile">
                         <div class="column">
-                            <p class="is-size-4">
+                            <p class="is-size-5">
                                 ¥26,500(税込)
                             </p>
                         </div>
@@ -107,14 +107,12 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <nav class="navbar is-fixed-bottom">
-            <div class="container">
-                <div class="columns is-mobile">
-                    <div class="column">
+            <nav class="navbar is-fixed-bottom">
+                <div class="columns is-mobile is-vcentered has-text-centered">
+                    <div class="column is-3">
                         小計
                     </div>
-                    <div class="column">
+                    <div class="column is-3">
                         <div id="result">¥0</div>
                         <script>
                             function calc() {
@@ -137,13 +135,15 @@
                                 }
                             }
                         </script>
-
                     </div>
+                    <div class="column is-6">
+                            <button id="nextButton" class="button modal-button" data-target="modal-fadeInScale-fs"
+                                disabled=true>配送先入力へ</button>
+                        </div>
                 </div>
-                <button id="nextButton" class="button modal-button" data-target="modal-fadeInScale-fs"
-                    disabled=true>配送先入力へ</button>
-            </div>
-        </nav>
+            </nav>
+
+        </div>
 
         <div id="modal-fadeInScale-fs" class="modal modal-full-screen modal-fx-fadeInScale">
             <div class="modal-content modal-card">
@@ -183,7 +183,7 @@
                                 <input id="email" class="input" type="text" placeholder="yours@mail.com">
                             </div>
                         </div>
-                        <p>注文後、上記記載のメールアドレスへメールが届きますので、そちらから決済を行ってください。</p>
+                        <p>注文後、上記記載のメールアドレスへ請求メールが届きますので、そちらから決済を行ってください。</p>
                     </form>
                     <script>
                         function isInput() {
@@ -215,7 +215,7 @@
                     </div>
                 </section>
                 <footer class="modal-card-foot">
-                    <button id="order" class="button is-success" onclick="createOrder();" disabled=true>注文</button>
+                    <button id="order" class="button is-success" onclick="createOrder();" disabled="true">注文</button>
                     <button id="cancel" class="modal-button-close button">キャンセル</button>
                 </footer>
             </div>
