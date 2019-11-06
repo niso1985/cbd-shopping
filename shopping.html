@@ -93,7 +93,8 @@
                         </div>
                         <div class="column">
                             <form oninput="calc();">
-                                <input type="number" name="pack" min="0" placeholder="0" class="input is-small" style="width:3em;">個
+                                <input type="number" name="pack" min="0" placeholder="0" class="input is-small"
+                                    style="width:3em;">個
                             </form>
                         </div>
                     </div>
@@ -119,7 +120,7 @@
                                 if (!oil) { oil_n = 0; } else { oil_n = parseInt(oil); }
                                 if (!cream) { cream_n = 0; } else { cream_n = parseInt(cream); }
                                 if (!roll) { roll_n = 0; } else { roll_n = parseInt(roll); }
-                                if (!pack) { pack_n = 0;} else { pack_n = parseInt(pack); }
+                                if (!pack) { pack_n = 0; } else { pack_n = parseInt(pack); }
                                 var sum = oil_n * 11900 + cream_n * 9800 + roll_n * 10300 + pack_n * 26500
 
                                 result.innerText = "¥" + sum;
@@ -132,7 +133,8 @@
 
                     </div>
                 </div>
-                <button id="nextButton" class="button modal-button" data-target="modal-fadeInScale-fs" disabled=true>配送先入力へ</button>
+                <button id="nextButton" class="button modal-button" data-target="modal-fadeInScale-fs"
+                    disabled=true>配送先入力へ</button>
             </div>
         </nav>
 
@@ -143,7 +145,7 @@
                     <button class="modal-button-close delete" aria-label="close"></button>
                 </header>
                 <section class="modal-card-body">
-                    <div id="shipping" class="container">
+                    <form id="shipping" class="container" oninput="isInput();">
                         <div class="field">
                             <label class="label">氏名</label>
                             <div class="control">
@@ -175,9 +177,29 @@
                             </div>
                         </div>
                         <p>注文後、上記記載のメールアドレスへメールが届きますので、そちらから決済を行ってください。</p>
-                    </div>
+                    </form>
+                    <script>
+                        function isInput() {
+                            var name_ = document.getElementById("name").value;
+                            var email_ = document.getElementById("email").value;
+                            var tell_ = document.getElementById("tell").value;
+                            var postalcode_ = document.getElementById("postalcode").value;
+                            var address_ = document.getElementById("address").value;
+
+                            if (name_ == "" || name_ == undefined
+                                || email_ == "" || email_ == undefined
+                                || tell_ == "" || tell_ == undefined
+                                || postalcode_ == "" || postalcode_ == undefined
+                                || address_ == "" || address_ == undefined
+                            ) {
+                                return;
+                            } else {
+                                document.getElementById("order").disabled = false;
+                            }
+                        }
+                    </script>
                     <div id="success" class="container is-hidden">
-                        <p>注文を受け付けました。手続き完了後、注文情報を記載した請求書をメールで送信します。<br/>
+                        <p>注文を受け付けました。手続き完了後、注文情報を記載した請求書をメールで送信します。<br />
                             そちらのメールから決済を行ってください。
                         </p>
                     </div>
@@ -186,7 +208,7 @@
                     </div>
                 </section>
                 <footer class="modal-card-foot">
-                    <button id="order" class="button is-success" onclick="createOrder();">注文</button>
+                    <button id="order" class="button is-success" onclick="createOrder();" disabled=true>注文</button>
                     <button id="cancel" class="modal-button-close button">キャンセル</button>
                 </footer>
             </div>

@@ -1,9 +1,9 @@
 var createOrder = function() {
-    var name_ = document.getElementById("name").innerText;
-    var email_ = document.getElementById("email").innerText;
-    var tell_ = document.getElementById("tell").innerText;
-    var postalcode_ = document.getElementById("postalcode").innerText;
-    var address_ = document.getElementById("address").innerText;
+    var name_ = document.getElementById("name").value;
+    var email_ = document.getElementById("email").value;
+    var tell_ = document.getElementById("tell").value;
+    var postalcode_ = document.getElementById("postalcode").value;
+    var address_ = document.getElementById("address").value;
 
     if(name_ == "" || name_ == undefined
     || email_ == "" || email_ == undefined
