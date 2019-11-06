@@ -21,6 +21,7 @@ var createOrder = function() {
     }
     var request = new XMLHttpRequest();
     request.open('POST', url);
+    request.setRequestHeader("Accept", "application/json");
     request.setRequestHeader("Content-Type", "application/json");
     request.onreadystatechange = function () {
         if (request.readyState != 4) {
