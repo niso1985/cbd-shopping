@@ -15,7 +15,7 @@ var createOrder = function() {
         postalcode: "ddd",
         address: "eee",
         oil: 1,
-        cream: 2,
+        bodycream: 2,
         rollon: 0,
         pack: 0
     }
