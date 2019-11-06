@@ -120,14 +120,19 @@
                                 if (!cream) { cream_n = 0; } else { cream_n = parseInt(cream); }
                                 if (!roll) { roll_n = 0; } else { roll_n = parseInt(roll); }
                                 if (!pack) { pack_n = 0;} else { pack_n = parseInt(pack); }
+                                var sum = oil_n * 11900 + cream_n * 9800 + roll_n * 10300 + pack_n * 26500
 
-                                result.innerText = "¥" + (oil_n * 11900 + cream_n * 9800 + roll_n * 10300 + pack_n * 26500);
+                                result.innerText = "¥" + sum;
+
+                                if (sum > 0) {
+                                    document.getElementById("nextButton").disabled = false
+                                }
                             }
                         </script>
 
                     </div>
                 </div>
-                <span class="button modal-button" data-target="modal-fadeInScale-fs">配送先入力へ</span>
+                <button id="nextButton" class="button modal-button" data-target="modal-fadeInScale-fs" disabled=true>配送先入力へ</button>
             </div>
         </nav>
 
@@ -142,31 +147,31 @@
                         <div class="field">
                             <label class="label">氏名</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="山本太郎">
+                                <input id="name" class="input" type="text" placeholder="山本太郎">
                             </div>
                         </div>
                         <div class="field">
                             <label class="label">郵便番号</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="100-0001">
+                                <input id="postalcode" class="input" type="text" placeholder="100-0001">
                             </div>
                         </div>
                         <div class="field">
                             <label class="label">住所</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="東京都渋谷区代々木５−５５−５CBDビル４F">
+                                <input id="address" class="input" type="text" placeholder="東京都渋谷区代々木５−５５−５CBDビル４F">
                             </div>
                         </div>
                         <div class="field">
                             <label class="label">電話番号</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="090-1111-2222">
+                                <input id="tel" class="input" type="text" placeholder="090-1111-2222">
                             </div>
                         </div>
                         <div class="field">
                             <label class="label">メールアドレス</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="yours@mail.com">
+                                <input id="email" class="input" type="text" placeholder="yours@mail.com">
                             </div>
                         </div>
                         <p>注文後、上記記載のメールアドレスへメールが届きますので、そちらから決済を行ってください。</p>

@@ -1,4 +1,29 @@
 var createOrder = function() {
+    var name_ = document.getElementById("name").innerText;
+    var email_ = document.getElementById("email").innerText;
+    var tell_ = document.getElementById("tell").innerText;
+    var postalcode_ = document.getElementById("postalcode").innerText;
+    var address_ = document.getElementById("address").innerText;
+
+    if(name_ == "" || name_ == undefined
+    || email_ == "" || email_ == undefined
+    || tell_ == "" || tell_ == undefined
+    || postalcode_ == "" || postalcode_ == undefined
+    || address_ == "" || address_ == undefined
+    ) return;
+
+    var oil = document.getElementsByName("oil")[0].value
+    var cream = document.getElementsByName("cream")[0].value
+    var roll = document.getElementsByName("roll")[0].value
+    var pack = document.getElementsByName("pack")[0].value
+    var oil_n, cream_n, roll_n;
+    if (!oil) { oil_n = 0; } else { oil_n = parseInt(oil); }
+    if (!cream) { cream_n = 0; } else { cream_n = parseInt(cream); }
+    if (!roll) { roll_n = 0; } else { roll_n = parseInt(roll); }
+    if (!pack) { pack_n = 0;} else { pack_n = parseInt(pack); }
+
+
+
     var button = document.getElementById("order");
     button.classList.add("is-loading");
     var cancelBtn = document.getElementById("cancel")
@@ -9,15 +34,15 @@ var createOrder = function() {
 
     var url = "/api/"
     var data = {
-        name: "aaa",
-        email: "bbb",
-        tell: "ccc",
-        postalcode: "ddd",
-        address: "eee",
-        oil: 1,
-        bodycream: 2,
-        rollon: 0,
-        pack: 0
+        name: name_,
+        email: email_,
+        tell: tell_,
+        postalcode: postalcode_,
+        address: address_,
+        oil: oil_n,
+        bodycream: cream_n,
+        rollon: roll_n,
+        pack: pack_n
     }
     var request = new XMLHttpRequest();
     request.open('POST', url);
